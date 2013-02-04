@@ -51,4 +51,8 @@ To actually use a feature an instance must be created, containing a unique namep
         ::behaviours []
         ::state {})
 ```        
-        
+
+License
+-------
+Copyright © 2012-2013 Jason Courcoux
+Distributed under the Eclipse Public License, the same as Clojure.
