@@ -1,11 +1,11 @@
 (ns cljs-spa-examples.base.feature
   (:require [cljs-spa.core :as framework]))
 
-(framework/defbehaviour ::render
+(framework/def-behaviour ::render
                         :triggers [:render]
                         :reaction (fn [] (.log js/console "Rendering...")))
 
-(framework/deffeature ::my-first-feature
+(framework/def-feature ::my-first-feature
                       :behaviours [::render]
                       :init (fn [] (.log js/console "Initing...")))
 

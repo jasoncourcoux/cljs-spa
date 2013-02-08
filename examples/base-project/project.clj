@@ -32,4 +32,6 @@
                  [ring "1.1.8"] ;; Web application library
                  [jayq "2.0.0"] ;;JQuery wrapper
                  [cljs-spa "0.1.0-SNAPSHOT"]
-                 [prismatic/dommy "0.0.1"]]) ;; Clojurescript templating library
+                 [prismatic/dommy "0.0.1"]] ;; Clojurescript templating library
+ ) 
+;  :profiles { :dev { :dependencies [[cljs-spa-dev "0.1.0-SNAPSHOT"]]}})
