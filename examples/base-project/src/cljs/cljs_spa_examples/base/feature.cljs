@@ -17,3 +17,6 @@
                   :state {})
 
 (framework/trigger ::my-first-feature :render)
+
+(framework/trigger :cljs-spa.features.keyboard/keyboard-handler :register-shortcut :target ::my-first-feature :keycode 48 :trigger (fn [] (js/alert "Done")))
+

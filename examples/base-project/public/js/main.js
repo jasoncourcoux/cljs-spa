@@ -2730,23 +2730,23 @@ cljs.core._hash["boolean"] = function(a) {
 cljs.core.IWithMeta["function"] = !0;
 cljs.core._with_meta["function"] = function(a, b) {
   return cljs.core.with_meta.call(null, function() {
-    if(void 0 === cljs.core.t2934) {
-      cljs.core.t2934 = {};
-      cljs.core.t2934 = function(a, b, c) {
+    if(void 0 === cljs.core.t2940) {
+      cljs.core.t2940 = {};
+      cljs.core.t2940 = function(a, b, c) {
         this.meta = a;
         this.f = b;
-        this.meta2935 = c;
+        this.meta2941 = c;
         this.cljs$lang$protocol_mask$partition1$ = 0;
         this.cljs$lang$protocol_mask$partition0$ = 393217
       };
-      cljs.core.t2934.cljs$lang$type = !0;
-      cljs.core.t2934.cljs$lang$ctorPrSeq = function() {
-        return cljs.core.list.call(null, "cljs.core/t2934")
+      cljs.core.t2940.cljs$lang$type = !0;
+      cljs.core.t2940.cljs$lang$ctorPrSeq = function() {
+        return cljs.core.list.call(null, "cljs.core/t2940")
       };
-      cljs.core.t2934.cljs$lang$ctorPrWriter = function(a, b) {
-        return cljs.core._write.call(null, b, "cljs.core/t2934")
+      cljs.core.t2940.cljs$lang$ctorPrWriter = function(a, b) {
+        return cljs.core._write.call(null, b, "cljs.core/t2940")
       };
-      var c = cljs.core.t2934.prototype, d = function(a, b) {
+      var c = cljs.core.t2940.prototype, d = function(a, b) {
         return cljs.core.apply.call(null, a.f, b)
       }, e = function(a, b) {
         var a = this, c = null;
@@ -2760,19 +2760,19 @@ cljs.core._with_meta["function"] = function(a, b) {
       };
       e.cljs$lang$arity$variadic = d;
       c.call = e;
-      cljs.core.t2934.prototype.apply = function(a, b) {
+      cljs.core.t2940.prototype.apply = function(a, b) {
         a = this;
         return a.call.apply(a, [a].concat(b.slice()))
       };
-      cljs.core.t2934.prototype.cljs$core$Fn$ = !0;
-      cljs.core.t2934.prototype.cljs$core$IMeta$_meta$arity$1 = function() {
-        return this.meta2935
+      cljs.core.t2940.prototype.cljs$core$Fn$ = !0;
+      cljs.core.t2940.prototype.cljs$core$IMeta$_meta$arity$1 = function() {
+        return this.meta2941
       };
-      cljs.core.t2934.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(a, b) {
-        return new cljs.core.t2934(this.meta, this.f, b)
+      cljs.core.t2940.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(a, b) {
+        return new cljs.core.t2940(this.meta, this.f, b)
       }
     }
-    return new cljs.core.t2934(b, a, null)
+    return new cljs.core.t2940(b, a, null)
   }(), b)
 };
 cljs.core.IMeta["function"] = !0;
@@ -13249,6 +13249,14 @@ cljs_spa.internal.fire_behaviours = function(a) {
     }
   })
 };
+cljs_spa.internal.add_instance_state = function(a) {
+  return cljs_spa.internal.bind.call(null, a, function(a) {
+    return function(c) {
+      var d = (new cljs.core.Keyword("\ufdd0'id")).call(null, a), e = (new cljs.core.Keyword("\ufdd0'data")).call(null, a);
+      return cljs.core.PersistentVector.fromArray([a, cljs.core.assoc_in.call(null, c, cljs.core.PersistentVector.fromArray(["\ufdd0'data", "\ufdd0'instances", d, "\ufdd0'data"], !0), cljs.core.merge.call(null, (new cljs.core.Keyword("\ufdd0'data")).call(null, d.call(null, (new cljs.core.Keyword("\ufdd0'instances")).call(null, (new cljs.core.Keyword("\ufdd0'data")).call(null, c)))), e))], !0)
+    }
+  })
+};
 cljs_spa.core = {};
 cljs_spa.core.def_feature = function() {
   var a = function(a, b) {
@@ -13325,6 +13333,14 @@ cljs_spa.core.trigger = function() {
   b.cljs$lang$arity$variadic = a;
   return b
 }();
+cljs_spa.core.add_state = function(a, b) {
+  var c = cljs_spa.internal.update_application_data.call(null, cljs_spa.internal.add_instance_state.call(null, cljs_spa.internal.return$.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'id", "\ufdd0'data"], {"\ufdd0'id":a, "\ufdd0'data":b})))).call(null, cljs.core.ObjMap.fromObject(["\ufdd0'data"], {"\ufdd0'data":cljs.core.deref.call(null, cljs_spa.internal.app_data)})), d = cljs.core.nth.call(null, c, 0, null);
+  cljs.core.nth.call(null, c, 1, null);
+  return(new cljs.core.Keyword("\ufdd0'id")).call(null, d)
+};
+cljs_spa.core.get_property = function(a, b) {
+  return b.call(null, (new cljs.core.Keyword("\ufdd0'data")).call(null, a.call(null, (new cljs.core.Keyword("\ufdd0'instances")).call(null, cljs.core.deref.call(null, cljs_spa.internal.app_data)))))
+};
 cljs.reader = {};
 cljs.reader.PushbackReader = {};
 cljs.reader.read_char = function(a) {
@@ -14736,14 +14752,18 @@ cljs_spa.features = {};
 cljs_spa.features.keyboard = {};
 cljs_spa.features.keyboard.$body = jayq.core.$.call(null, "\ufdd0'body");
 cljs_spa.core.def_behaviour.call(null, "\ufdd0'cljs-spa.features.keyboard/register-shortcut", "\ufdd0'description", "", "\ufdd0'triggers", cljs.core.PersistentVector.fromArray(["\ufdd0'register-shortcut"], !0), "\ufdd0'reaction", function(a, b) {
-  var c = cljs.core.seq_QMARK_.call(null, b) ? cljs.core.apply.call(null, cljs.core.hash_map, b) : b;
-  cljs.core._lookup.call(null, c, cljs.core.PersistentVector.fromArray([cljs_spa.features.keyboard.target, cljs_spa.features.keyboard.keycode, cljs_spa.core.trigger], !0), null);
-  return console.log("Registering shortcut")
+  var c = cljs.core.seq_QMARK_.call(null, b) ? cljs.core.apply.call(null, cljs.core.hash_map, b) : b, d = cljs.core._lookup.call(null, c, "\ufdd0'trigger", null), e = cljs.core._lookup.call(null, c, "\ufdd0'keycode", null);
+  cljs.core._lookup.call(null, c, "\ufdd0'target", null);
+  console.log("Registering shortcut");
+  return cljs_spa.core.add_state.call(null, a, cljs.core.PersistentArrayMap.fromArrays([cljs.core.keyword.call(null, e)], [function() {
+    return d.call(null)
+  }]))
 });
 cljs_spa.core.def_behaviour.call(null, "\ufdd0'cljs-spa.features.keyboard/handle-keypress", "\ufdd0'triggers", cljs.core.PersistentVector.fromArray(["\ufdd0'keypress"], !0), "\ufdd0'reaction", function(a, b) {
-  var c = cljs.core.seq_QMARK_.call(null, b) ? cljs.core.apply.call(null, cljs.core.hash_map, b) : b;
-  cljs.core._lookup.call(null, c, "\ufdd0'event", null);
-  return console.log("Got keyboard event")
+  var c = cljs.core.seq_QMARK_.call(null, b) ? cljs.core.apply.call(null, cljs.core.hash_map, b) : b, c = cljs.core._lookup.call(null, c, "\ufdd0'event", null), c = "" + cljs.core.str(c.keyCode);
+  console.log([cljs.core.str("Got keyboard event with keycode: "), cljs.core.str(c)].join(""));
+  c = cljs_spa.core.get_property.call(null, a, cljs.core.keyword.call(null, c));
+  return cljs.core.truth_(c) ? c.call(null) : null
 });
 cljs_spa.core.def_feature.call(null, "\ufdd0'cljs-spa.features.keyboard/keyboard-handler", "\ufdd0'behaviours", cljs.core.PersistentVector.fromArray(["\ufdd0'cljs-spa.features.keyboard/register-shortcut", "\ufdd0'cljs-spa.features.keyboard/handle-keypress"], !0), "\ufdd0'init", function() {
   return jayq.core.bind.call(null, cljs_spa.features.keyboard.$body, "\ufdd0'keypress", function(a) {
@@ -14778,3 +14798,6 @@ cljs_spa.core.def_feature.call(null, "\ufdd0'cljs-spa-examples.base.feature/my-f
 });
 cljs_spa.core.create.call(null, "\ufdd0'cljs-spa-examples.base.feature/my-first-feature", "\ufdd0'cljs-spa-examples.base.feature/my-first-feature", "\ufdd0'behaviours", cljs.core.PersistentVector.EMPTY, "\ufdd0'state", cljs.core.ObjMap.EMPTY);
 cljs_spa.core.trigger.call(null, "\ufdd0'cljs-spa-examples.base.feature/my-first-feature", "\ufdd0'render");
+cljs_spa.core.trigger.call(null, "\ufdd0'cljs-spa.features.keyboard/keyboard-handler", "\ufdd0'register-shortcut", "\ufdd0'target", "\ufdd0'cljs-spa-examples.base.feature/my-first-feature", "\ufdd0'keycode", 48, "\ufdd0'trigger", function() {
+  return alert("Done")
+});

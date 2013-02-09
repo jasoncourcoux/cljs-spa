@@ -1,6 +1,6 @@
 (ns cljs-spa.features.keyboard  
   (:require [dommy.template :as template]
-            [cljs-spa.core :refer [def-behaviour def-feature create trigger]]
+            [cljs-spa.core :refer [def-behaviour def-feature create trigger add-state get-property]]
             [jayq.core :refer [$ bind]]))
 
 (def $body ($ :body))
@@ -8,13 +8,17 @@
 (def-behaviour ::register-shortcut
   :description ""
   :triggers [:register-shortcut]
-  :reaction (fn [obj {keys [target keycode trigger]}]
-                 (.log js/console "Registering shortcut")))
+  :reaction (fn [obj {:keys [target keycode trigger]}]
+                 (.log js/console "Registering shortcut")
+              (add-state obj {(keyword keycode) (fn [] (trigger))})))
 
 (def-behaviour ::handle-keypress
   						 :triggers [:keypress]
-               :reaction (fn [obj {:keys [event]}]                                                               
-                          (.log js/console "Got keyboard event")))
+               :reaction (fn [obj {:keys [event]}]  
+                           (let [keycode (str (.-keyCode event))]
+                             (.log js/console (str "Got keyboard event with keycode: " keycode))
+                          (if-let [trigger (get-property obj (keyword keycode))]
+                            (trigger)))))
 
 (def-feature ::keyboard-handler
   					 :behaviours [::register-shortcut ::handle-keypress]

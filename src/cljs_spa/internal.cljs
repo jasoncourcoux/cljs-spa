@@ -90,4 +90,10 @@
                       ((:reaction behaviour) (:id v) (:args v))))))
               [v s])))) 
   
-  
+(defn add-instance-state [a]
+  (bind a	(fn [v]
+            (fn [s]
+              (let [instance-id (:id v)
+                    state-to-add (:data v)]
+                [v (assoc-in s [:data :instances instance-id :data] (merge (-> s :data :instances instance-id :data) state-to-add))])))))
+                
