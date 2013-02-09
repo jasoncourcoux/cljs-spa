@@ -5,8 +5,8 @@
 (def app-data   
   (atom { :tags {}
           :behaviours {} 			
-					:features {} 				
-					:instances {} }))
+          :features {} 				
+          :instances {} }))
 
 (defn return [v]
   (fn [s] [v s]))
@@ -17,12 +17,12 @@
       ((f v) newstate))))
 
 (defn update-application-data [action]
-	(bind action (fn [value]
+  (bind action (fn [value]
                  (fn [state]
                    (if-let [d (:data state)]
                      (do                       
                        (swap! app-data merge @app-data d)
-                     	 [value state])
+                       [value state])
                      [nil state])))))
 
 (defn create-type [typekey id args state-map]  
@@ -37,7 +37,7 @@
                 [nil nil])))))
                
 
-(defn add-feature-to-state [a]
+ (defn add-feature-to-state [a]
   (bind a (fn [v]
             (fn [s]              
               (let [feature-id (:feature v)]
@@ -50,7 +50,7 @@
             (fn [s]              
               (if-let [init (-> s :feature :init)]
                 (init)) [(merge v {:trigger :init}) s]))))   
- 
+
 (defn add-feature-behaviours-to-state [a]
   (bind a (fn [v]
             (fn [s]
@@ -87,7 +87,7 @@
                     (if (and 
                          (:trigger v)
                          (some #{(:trigger v)} (:triggers behaviour)))
-                    	((:reaction behaviour) (:id v) (:args v))))))
-                [v s])))) 
+                      ((:reaction behaviour) (:id v) (:args v))))))
+              [v s])))) 
   
   

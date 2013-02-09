@@ -3,4 +3,7 @@ pom.xml
 /lib/
 /classes/
 /targets/
+/target/
+/.lein-cljsbuild-compiler-0/
+/examples/*/.lein-cljsbuild-compiler-0/
 .lein-deps-sum

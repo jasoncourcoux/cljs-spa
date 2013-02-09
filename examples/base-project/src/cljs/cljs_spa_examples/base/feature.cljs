@@ -1,5 +1,7 @@
 (ns cljs-spa-examples.base.feature
-  (:require [cljs-spa.core :as framework]))
+  (:require [cljs-spa.core :as framework]
+            [cljs-spa.features.logging :as log]
+            [cljs-spa.features.keyboard :as kb]))
 
 (framework/def-behaviour ::render
                         :triggers [:render]
