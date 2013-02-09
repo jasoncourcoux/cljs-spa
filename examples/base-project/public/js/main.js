@@ -2730,23 +2730,23 @@ cljs.core._hash["boolean"] = function(a) {
 cljs.core.IWithMeta["function"] = !0;
 cljs.core._with_meta["function"] = function(a, b) {
   return cljs.core.with_meta.call(null, function() {
-    if(void 0 === cljs.core.t2940) {
-      cljs.core.t2940 = {};
-      cljs.core.t2940 = function(a, b, c) {
+    if(void 0 === cljs.core.t2944) {
+      cljs.core.t2944 = {};
+      cljs.core.t2944 = function(a, b, c) {
         this.meta = a;
         this.f = b;
-        this.meta2941 = c;
+        this.meta2945 = c;
         this.cljs$lang$protocol_mask$partition1$ = 0;
         this.cljs$lang$protocol_mask$partition0$ = 393217
       };
-      cljs.core.t2940.cljs$lang$type = !0;
-      cljs.core.t2940.cljs$lang$ctorPrSeq = function() {
-        return cljs.core.list.call(null, "cljs.core/t2940")
+      cljs.core.t2944.cljs$lang$type = !0;
+      cljs.core.t2944.cljs$lang$ctorPrSeq = function() {
+        return cljs.core.list.call(null, "cljs.core/t2944")
       };
-      cljs.core.t2940.cljs$lang$ctorPrWriter = function(a, b) {
-        return cljs.core._write.call(null, b, "cljs.core/t2940")
+      cljs.core.t2944.cljs$lang$ctorPrWriter = function(a, b) {
+        return cljs.core._write.call(null, b, "cljs.core/t2944")
       };
-      var c = cljs.core.t2940.prototype, d = function(a, b) {
+      var c = cljs.core.t2944.prototype, d = function(a, b) {
         return cljs.core.apply.call(null, a.f, b)
       }, e = function(a, b) {
         var a = this, c = null;
@@ -2760,19 +2760,19 @@ cljs.core._with_meta["function"] = function(a, b) {
       };
       e.cljs$lang$arity$variadic = d;
       c.call = e;
-      cljs.core.t2940.prototype.apply = function(a, b) {
+      cljs.core.t2944.prototype.apply = function(a, b) {
         a = this;
         return a.call.apply(a, [a].concat(b.slice()))
       };
-      cljs.core.t2940.prototype.cljs$core$Fn$ = !0;
-      cljs.core.t2940.prototype.cljs$core$IMeta$_meta$arity$1 = function() {
-        return this.meta2941
+      cljs.core.t2944.prototype.cljs$core$Fn$ = !0;
+      cljs.core.t2944.prototype.cljs$core$IMeta$_meta$arity$1 = function() {
+        return this.meta2945
       };
-      cljs.core.t2940.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(a, b) {
-        return new cljs.core.t2940(this.meta, this.f, b)
+      cljs.core.t2944.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(a, b) {
+        return new cljs.core.t2944(this.meta, this.f, b)
       }
     }
-    return new cljs.core.t2940(b, a, null)
+    return new cljs.core.t2944(b, a, null)
   }(), b)
 };
 cljs.core.IMeta["function"] = !0;
@@ -14748,6 +14748,21 @@ jayq.core.deferred_m = cljs.core.ObjMap.fromObject(["\ufdd0'return", "\ufdd0'bin
 jayq.core.ajax_m = cljs.core.ObjMap.fromObject(["\ufdd0'return", "\ufdd0'bind", "\ufdd0'zero"], {"\ufdd0'return":cljs.core.identity, "\ufdd0'bind":function(a, b) {
   return jayq.core.done.call(null, jayq.core.ajax.call(null, a), b)
 }, "\ufdd0'zero":cljs.core.identity});
+var cljs_spa_examples = {base:{}};
+cljs_spa_examples.base.header = {};
+cljs_spa_examples.base.header.header_ui = function() {
+  return dommy.template.node.call(null, cljs.core.PersistentVector.fromArray(["\ufdd0'header.spa-header", cljs.core.PersistentVector.fromArray(["\ufdd0'hgroup.spa-header-text", cljs.core.PersistentVector.fromArray(["\ufdd0'h1", "CLJS-SPA Example"], !0), cljs.core.PersistentVector.fromArray(["\ufdd0'h4", "A single page web application"], !0)], !0), cljs.core.PersistentVector.fromArray(["\ufdd0'div.spa-header-menu", cljs.core.PersistentVector.fromArray(["\ufdd0'span", "Logged in as Jason Courcoux"], 
+  !0), cljs.core.PersistentVector.fromArray(["\ufdd0'a", cljs.core.ObjMap.fromObject(["\ufdd0'href"], {"\ufdd0'href":"/logout"}), "Logout"], !0)], !0), cljs.core.PersistentVector.fromArray(["\ufdd0'nav.spa-main-menu", cljs.core.PersistentVector.fromArray(["\ufdd0'ul", cljs.core.PersistentVector.fromArray(["\ufdd0'li.spa-menu-item", cljs.core.PersistentVector.fromArray(["\ufdd0'a", cljs.core.ObjMap.fromObject(["\ufdd0'href"], {"\ufdd0'href":"#"}), "Home"], !0)], !0), cljs.core.PersistentVector.fromArray(["\ufdd0'li.spa-menu-item", 
+  cljs.core.PersistentVector.fromArray(["\ufdd0'a", cljs.core.ObjMap.fromObject(["\ufdd0'href"], {"\ufdd0'href":"#"}), "Admin"], !0)], !0)], !0)], !0)], !0))
+};
+cljs_spa.core.def_behaviour.call(null, "\ufdd0'cljs-spa-examples.base.header/render", "\ufdd0'triggers", cljs.core.PersistentVector.fromArray(["\ufdd0'render"], !0), "\ufdd0'reaction", function(a, b) {
+  var c = cljs.core.seq_QMARK_.call(null, b) ? cljs.core.apply.call(null, cljs.core.hash_map, b) : b, c = cljs.core._lookup.call(null, c, "\ufdd0'parent", null);
+  return cljs.core.truth_(c) ? jayq.core.inner.call(null, c, cljs_spa_examples.base.header.header_ui.call(null).outerHTML) : console.log([cljs.core.str("No parent element set for obj id "), cljs.core.str(a), cljs.core.str(" so cannot render")].join(""))
+});
+cljs_spa.core.def_feature.call(null, "\ufdd0'cljs-spa-examples.base.header/header", "\ufdd0'triggers", cljs.core.PersistentVector.EMPTY, "\ufdd0'behaviours", cljs.core.PersistentVector.fromArray(["\ufdd0'cljs-spa-examples.base.header/render"], !0), "\ufdd0'init", function() {
+  return console.log("Starting header...")
+});
+cljs_spa.core.create.call(null, "\ufdd0'cljs-spa-examples.base.header/header", "\ufdd0'cljs-spa-examples.base.header/header", "\ufdd0'behaviours", cljs.core.PersistentVector.EMPTY, "\ufdd0'data", cljs.core.ObjMap.EMPTY);
 cljs_spa.features = {};
 cljs_spa.features.keyboard = {};
 cljs_spa.features.keyboard.$body = jayq.core.$.call(null, "\ufdd0'body");
@@ -14788,7 +14803,6 @@ cljs_spa.core.def_feature.call(null, "\ufdd0'cljs-spa.features.logging/logging-h
   return console.log("Starting logging feature")
 });
 cljs_spa.core.create.call(null, "\ufdd0'cljs-spa.features.logging/logging-handler", "\ufdd0'cljs-spa.features.logging/logging-handler", "\ufdd0'behaviours", cljs.core.PersistentVector.EMPTY, "\ufdd0'data", cljs.core.ObjMap.EMPTY);
-var cljs_spa_examples = {base:{}};
 cljs_spa_examples.base.feature = {};
 cljs_spa.core.def_behaviour.call(null, "\ufdd0'cljs-spa-examples.base.feature/render", "\ufdd0'triggers", cljs.core.PersistentVector.fromArray(["\ufdd0'render"], !0), "\ufdd0'reaction", function() {
   return console.log("Rendering...")
@@ -14798,6 +14812,7 @@ cljs_spa.core.def_feature.call(null, "\ufdd0'cljs-spa-examples.base.feature/my-f
 });
 cljs_spa.core.create.call(null, "\ufdd0'cljs-spa-examples.base.feature/my-first-feature", "\ufdd0'cljs-spa-examples.base.feature/my-first-feature", "\ufdd0'behaviours", cljs.core.PersistentVector.EMPTY, "\ufdd0'state", cljs.core.ObjMap.EMPTY);
 cljs_spa.core.trigger.call(null, "\ufdd0'cljs-spa-examples.base.feature/my-first-feature", "\ufdd0'render");
+cljs_spa.core.trigger.call(null, "\ufdd0'cljs-spa-examples.base.header/header", "\ufdd0'render", "\ufdd0'parent", jayq.core.$.call(null, "\ufdd0'#content"));
 cljs_spa.core.trigger.call(null, "\ufdd0'cljs-spa.features.keyboard/keyboard-handler", "\ufdd0'register-shortcut", "\ufdd0'target", "\ufdd0'cljs-spa-examples.base.feature/my-first-feature", "\ufdd0'keycode", 48, "\ufdd0'trigger", function() {
   return alert("Done")
 });

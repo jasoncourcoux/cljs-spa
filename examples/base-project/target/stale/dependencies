@@ -1,0 +1,1 @@
+([:dependencies [[org.clojure/clojure "1.4.0"] [compojure "1.2.0-SNAPSHOT"] [ring "1.1.8"] [jayq "2.0.0"] [cljs-spa "0.1.0-SNAPSHOT"] [org.clojure/data.json "0.2.1"] [prismatic/dommy "0.0.1"] [ring-server "0.2.7"]]])

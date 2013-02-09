@@ -1,0 +1,39 @@
+.spa-header {
+  border: 1px solid;
+}
+
+.spa-header-text {
+   display: inline-block;
+}
+
+.spa-header-text h1 {
+   padding: 0;
+  margin: 0;
+}
+
+.spa-header-text h4 {
+   padding: 0;
+  margin: 0;
+}
+
+.spa-header-menu {
+  display: inline-block;
+  float: right;
+  margin: 10px;
+  padding: 10px;
+  border: solid black 1px;
+}
+
+.spa-main-menu {
+  background: red;
+}
+
+.spa-main-menu ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.spa-menu-item {
+  display: inline-block;
+}

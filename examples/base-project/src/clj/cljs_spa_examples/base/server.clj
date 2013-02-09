@@ -9,9 +9,12 @@
         [ring.middleware.keyword-params]        
         [compojure.core])
   (:require [compojure.route :as route]
-            [cljs-spa-examples.base.login :as login]))
+            [cljs-spa-examples.base.login :as login]
+            [clojure.data.json :as json]))
 
 (defroutes app-routes
+  (GET "/menu" [] (json/write-str [{:name "Home"} 
+                                   {:name "Admin"}]))
   (route/files "/app" {:root "private"})
   (GET "/test" [] "Your logged in"))
   

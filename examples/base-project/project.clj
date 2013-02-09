@@ -20,7 +20,7 @@
                        :main {
                               :source-path "src/cljs"
                               :compiler {
-                                         :output-to "public/js/main.js"
+                                         :output-to "private/js/main.js"
                                          :optimizations :simple
                                          :pretty-print true
                                          }
@@ -32,6 +32,7 @@
                  [ring "1.1.8"] ;; Web application library
                  [jayq "2.0.0"] ;;JQuery wrapper
                  [cljs-spa "0.1.0-SNAPSHOT"]
+                 [org.clojure/data.json "0.2.1"]
                  [prismatic/dommy "0.0.1"]] ;; Clojurescript templating library
  ) 
 ;  :profiles { :dev { :dependencies [[cljs-spa-dev "0.1.0-SNAPSHOT"]]}})
