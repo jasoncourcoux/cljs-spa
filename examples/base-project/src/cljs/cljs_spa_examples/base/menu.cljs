@@ -15,16 +15,11 @@
     (for [item items]
       (menu-item-ui item))]))
 
-
-(defn render-menu [parent reply]
-    (let [v (js->clj (.getResponseJson (.-target reply)))] ;v is a Clojure data structure      
-      (inner parent (.-outerHTML (menu-ui v)))))
-
 (def-behaviour ::render
   						 :triggers [:render]
-               :reaction (fn [obj {:keys [parent]}]                               		
+               :reaction (fn [obj {:keys [parent menu-items]}]                               		
                                  (if-let [p parent] 
-																	 (.send goog.net.XhrIo "/menu" (partial render-menu p))                                                                           
+																	 (inner parent (.-outerHTML (menu-ui menu-items)))
                                    (.log js/console (str "No parent element set for obj id " obj " so cannot render")))))
 
 (def-feature ::menu  					

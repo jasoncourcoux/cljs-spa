@@ -13,8 +13,8 @@
             [clojure.data.json :as json]))
 
 (defroutes app-routes
-  (GET "/menu" [] (json/write-str [{:name "Home"} 
-                                   {:name "Admin"}]))
+  (GET "/shell/header" {session :session} (json/write-str {:user (:user session) :menu [{:name "Home"} 
+                                   															{:name "Admin"}]}))
   (route/files "/app" {:root "private"})
   (GET "/test" [] "Your logged in"))
   

@@ -9,7 +9,9 @@
 (get-user {:session {:user "Jason"}})
 
 (defn valid-login? [username password]
-  (and (= username "admin") (= password "password")))
+  (or
+  	(and (= username "admin") (= password "password"))
+   	(and (= username "jason") (= password "password"))))
 
 (defn login [session user password]  
   (if (valid-login? user password)

@@ -17298,13 +17298,9 @@ cljs_spa_examples.base.menu.menu_ui = function(a) {
     }, null)
   }.call(null, a)], !0))
 };
-cljs_spa_examples.base.menu.render_menu = function(a, b) {
-  var c = cljs.core.js__GT_clj.call(null, b.target.getResponseJson());
-  return jayq.core.inner.call(null, a, cljs_spa_examples.base.menu.menu_ui.call(null, c).outerHTML)
-};
 cljs_spa.core.def_behaviour.call(null, "\ufdd0'cljs-spa-examples.base.menu/render", "\ufdd0'triggers", cljs.core.PersistentVector.fromArray(["\ufdd0'render"], !0), "\ufdd0'reaction", function(a, b) {
-  var c = cljs.core.seq_QMARK_.call(null, b) ? cljs.core.apply.call(null, cljs.core.hash_map, b) : b, c = cljs.core._lookup.call(null, c, "\ufdd0'parent", null);
-  return cljs.core.truth_(c) ? goog.net.XhrIo.send("/menu", cljs.core.partial.call(null, cljs_spa_examples.base.menu.render_menu, c)) : console.log([cljs.core.str("No parent element set for obj id "), cljs.core.str(a), cljs.core.str(" so cannot render")].join(""))
+  var c = cljs.core.seq_QMARK_.call(null, b) ? cljs.core.apply.call(null, cljs.core.hash_map, b) : b, d = cljs.core._lookup.call(null, c, "\ufdd0'menu-items", null), c = cljs.core._lookup.call(null, c, "\ufdd0'parent", null);
+  return cljs.core.truth_(c) ? jayq.core.inner.call(null, c, cljs_spa_examples.base.menu.menu_ui.call(null, d).outerHTML) : console.log([cljs.core.str("No parent element set for obj id "), cljs.core.str(a), cljs.core.str(" so cannot render")].join(""))
 });
 cljs_spa.core.def_feature.call(null, "\ufdd0'cljs-spa-examples.base.menu/menu", "\ufdd0'triggers", cljs.core.PersistentVector.EMPTY, "\ufdd0'behaviours", cljs.core.PersistentVector.fromArray(["\ufdd0'cljs-spa-examples.base.menu/render"], !0), "\ufdd0'init", function() {
   return console.log("Starting menu...")
@@ -17351,13 +17347,18 @@ cljs_spa.core.def_feature.call(null, "\ufdd0'cljs-spa.features.logging/logging-h
 });
 cljs_spa.core.create.call(null, "\ufdd0'cljs-spa.features.logging/logging-handler", "\ufdd0'cljs-spa.features.logging/logging-handler", "\ufdd0'behaviours", cljs.core.PersistentVector.EMPTY, "\ufdd0'data", cljs.core.ObjMap.EMPTY);
 cljs_spa_examples.base.header = {};
-cljs_spa_examples.base.header.header_ui = function() {
-  return dommy.template.node.call(null, cljs.core.PersistentVector.fromArray(["\ufdd0'header.spa-header", cljs.core.PersistentVector.fromArray(["\ufdd0'hgroup.spa-header-text", cljs.core.PersistentVector.fromArray(["\ufdd0'h1", "CLJS-SPA Example"], !0), cljs.core.PersistentVector.fromArray(["\ufdd0'h4", "A single page web application"], !0)], !0), cljs.core.PersistentVector.fromArray(["\ufdd0'div.spa-header-menu", cljs.core.PersistentVector.fromArray(["\ufdd0'span", "Logged in as Jason Courcoux"], 
-  !0), cljs.core.PersistentVector.fromArray(["\ufdd0'a", cljs.core.ObjMap.fromObject(["\ufdd0'href"], {"\ufdd0'href":"/logout"}), "Logout"], !0)], !0), cljs.core.PersistentVector.fromArray(["\ufdd0'nav.spa-main-menu#spa-main-menu"], !0)], !0))
+cljs_spa_examples.base.header.header_ui = function(a) {
+  return dommy.template.node.call(null, cljs.core.PersistentVector.fromArray(["\ufdd0'header.spa-header", cljs.core.PersistentVector.fromArray(["\ufdd0'hgroup.spa-header-text", cljs.core.PersistentVector.fromArray(["\ufdd0'h1", "CLJS-SPA Example"], !0), cljs.core.PersistentVector.fromArray(["\ufdd0'h4", "A single page web application"], !0)], !0), cljs.core.PersistentVector.fromArray(["\ufdd0'div.spa-header-menu", cljs.core.PersistentVector.fromArray(["\ufdd0'span", [cljs.core.str("Logged in as: "), 
+  cljs.core.str(a)].join("")], !0), cljs.core.PersistentVector.fromArray(["\ufdd0'a", cljs.core.ObjMap.fromObject(["\ufdd0'href"], {"\ufdd0'href":"/logout"}), "Logout"], !0)], !0), cljs.core.PersistentVector.fromArray(["\ufdd0'nav.spa-main-menu#spa-main-menu"], !0)], !0))
+};
+cljs_spa_examples.base.header.render_header = function(a, b) {
+  var c = cljs.core.js__GT_clj.call(null, b.target.getResponseJson());
+  jayq.core.inner.call(null, a, cljs_spa_examples.base.header.header_ui.call(null, "user".call(null, c)).outerHTML);
+  return cljs_spa.core.trigger.call(null, "\ufdd0'cljs-spa-examples.base.menu/menu", "\ufdd0'render", "\ufdd0'parent", jayq.core.$.call(null, "\ufdd0'#spa-main-menu"), "\ufdd0'menu-items", "menu".call(null, c))
 };
 cljs_spa.core.def_behaviour.call(null, "\ufdd0'cljs-spa-examples.base.header/render", "\ufdd0'triggers", cljs.core.PersistentVector.fromArray(["\ufdd0'render"], !0), "\ufdd0'reaction", function(a, b) {
   var c = cljs.core.seq_QMARK_.call(null, b) ? cljs.core.apply.call(null, cljs.core.hash_map, b) : b, c = cljs.core._lookup.call(null, c, "\ufdd0'parent", null);
-  return cljs.core.truth_(c) ? (jayq.core.inner.call(null, c, cljs_spa_examples.base.header.header_ui.call(null).outerHTML), cljs_spa.core.trigger.call(null, "\ufdd0'cljs-spa-examples.base.menu/menu", "\ufdd0'render", "\ufdd0'parent", jayq.core.$.call(null, "\ufdd0'#spa-main-menu"))) : console.log([cljs.core.str("No parent element set for obj id "), cljs.core.str(a), cljs.core.str(" so cannot render")].join(""))
+  return cljs.core.truth_(c) ? goog.net.XhrIo.send("/shell/header", cljs.core.partial.call(null, cljs_spa_examples.base.header.render_header, c)) : console.log([cljs.core.str("No parent element set for obj id "), cljs.core.str(a), cljs.core.str(" so cannot render")].join(""))
 });
 cljs_spa.core.def_feature.call(null, "\ufdd0'cljs-spa-examples.base.header/header", "\ufdd0'triggers", cljs.core.PersistentVector.EMPTY, "\ufdd0'behaviours", cljs.core.PersistentVector.fromArray(["\ufdd0'cljs-spa-examples.base.header/render"], !0), "\ufdd0'init", function() {
   return console.log("Starting header...")
