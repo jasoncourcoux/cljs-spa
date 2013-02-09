@@ -4,17 +4,27 @@
 ;;;;
 (ns cljs-spa-examples.base.server
   (:use [ring.adapter.jetty]  
+        [ring.middleware.params]        
+        [ring.middleware.session]        
+        [ring.middleware.keyword-params]        
         [compojure.core])
-  (:require [compojure.route :as route]))
+  (:require [compojure.route :as route]
+            [cljs-spa-examples.base.login :as login]))
 
+(defroutes app-routes
+  (route/files "/app" {:root "private"})
+  (GET "/test" [] "Your logged in"))
+  
 
 ;;;;
 ;;;; The defroutes marco is used and we define a simple route to return "Hello world"
 ;;;; when the base url is requested.
 ;;;; 
-(defroutes main-routes
-  (GET "/" [] "Hello World")
-  (route/files "/resources" {:root "public"}))
+(defroutes main-routes  
+  (ANY "/logout" {session :session} (login/logout session))
+  (POST "/login" {{user :user password :password} :params session :session} (login/login session user password))  
+  (route/files "/resources" {:root "public"})
+  (login/wrap-login app-routes)) 
 
 ;;;;
 ;;;; Thread the request through to our defined routes, we use the '# syntax
@@ -25,4 +35,4 @@
 ;;;; in ring, but for now we just reference the main-routes handler.
 ;;;;
 (def app   
-  #'main-routes)
+  (-> #'main-routes ring.middleware.stacktrace/wrap-stacktrace wrap-keyword-params wrap-params wrap-session))

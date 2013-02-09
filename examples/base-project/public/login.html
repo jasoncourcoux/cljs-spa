@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Login</title>
+    <script src="js/modernizr-latest.js"></script>
+  </head>
+  <body>
+    <form name="login" method="post" action="/login" >
+      <fieldset>
+	<legend>Login</legend>
+	<ul>
+	  <li>
+	    <label class="required">
+	      <div>Username</div>
+	      <input name="user" required autofocus/>
+	    </label>
+	  </li>
+	  <li>
+	    <label class="required">
+	      <div>Password</div>
+	      <input name="password" type="password" required/>
+	    </label>
+	  </li>
+	</ul>
+      </fieldset>
+      <div class="trident-login-buttons trident-buttons">	
+	<input type="submit" value="Login"/>
+      </div>
+    </form>
+  </body>
+</html>
