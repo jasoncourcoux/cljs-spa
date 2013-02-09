@@ -2,7 +2,7 @@
   (:use [jayq.core :only [$ append delegate data bind inner]])
   (:require [cljs-spa.core :refer [def-behaviour def-feature create trigger]]
             [cljs-spa-examples.base.menu :as menu]
-            [goog.net.XhrIo :as ajax]
+            [cljs-spa.features.request :as request]            
             [dommy.template :as template]))
 
 (defn header-ui
@@ -17,17 +17,15 @@
      [:a {:href "/logout"} "Logout"]]
     [:nav.spa-main-menu#spa-main-menu]]))     
 
-(defn render-header [parent reply]
-    (let [v (js->clj (.getResponseJson (.-target reply)))] ;v is a Clojure data structure      
-      (inner parent (.-outerHTML (header-ui ("user" v))))
-      (trigger :cljs-spa-examples.base.menu/menu :render :parent ($ :#spa-main-menu) :menu-items ("menu" v))))
+(defn render-header [args data]    
+  (inner (:parent args) (.-outerHTML (header-ui ("user" data))))
+  (trigger :cljs-spa-examples.base.menu/menu :render :parent ($ :#spa-main-menu) :menu-items ("menu" data)))
 
 (def-behaviour ::render
   						 :triggers [:render]
                :reaction (fn [obj {:keys [parent]}]                               		
                                  (if-let [p parent]                                   
-                                   (do 
-                                     (.send goog.net.XhrIo "/shell/header" (partial render-header p))                                                                                                                                                       )                                   
+                                   (trigger :cljs-spa.features.request/request :get :url "/shell/header" :success render-header :args {:parent p})                                  
                                    (.log js/console (str "No parent element set for obj id " obj " so cannot render")))))
 
 (def-feature ::header  					
