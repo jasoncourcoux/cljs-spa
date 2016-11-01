@@ -1,4 +1,4 @@
-This was just an experiment when learning ClojureScript.
+# This was just an weekend project when learning ClojureScript - not intended to be used other than for a couple of experiments I put together.
 
 cljs-spa
 ========
